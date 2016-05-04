@@ -1,0 +1,39 @@
+﻿Imports System.Resources
+
+Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("Unicomp Bounce Test v3")> 
+<Assembly: AssemblyDescription("USB FKT Test Software")> 
+<Assembly: AssemblyCompany("Unicomp")> 
+<Assembly: AssemblyProduct("Unicomp Bounce Test v3")>
+<Assembly: AssemblyCopyright("Copyright ©  2006-2015 Unicomp, Inc")>
+<Assembly: AssemblyTrademark("")>
+
+<Assembly: ComVisible(True)>
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("c98ff5de-6c23-45f6-8df5-58d532ec5b24")>
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")> 
+
+<Assembly: AssemblyVersion("3.1.0.0")>
+<Assembly: AssemblyFileVersion("3.1.0.0")>
+
+<Assembly: NeutralResourcesLanguageAttribute("en")> 
