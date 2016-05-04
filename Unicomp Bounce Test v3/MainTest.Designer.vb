@@ -20,17 +20,18 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Me.btnStart = New System.Windows.Forms.Button
-        Me.lblResult = New System.Windows.Forms.Label
-        Me.btnDiagnose = New System.Windows.Forms.Button
-        Me.btnReset = New System.Windows.Forms.Button
-        Me.cboTestFile = New System.Windows.Forms.ComboBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.grpTest = New System.Windows.Forms.GroupBox
-        Me.prgTest = New System.Windows.Forms.ProgressBar
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.lstFailedKeys = New System.Windows.Forms.ListBox
-        Me.btnConfig = New System.Windows.Forms.Button
+        Me.btnStart = New System.Windows.Forms.Button()
+        Me.lblResult = New System.Windows.Forms.Label()
+        Me.btnDiagnose = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.cboTestFile = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.grpTest = New System.Windows.Forms.GroupBox()
+        Me.prgTest = New System.Windows.Forms.ProgressBar()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lstFailedKeys = New System.Windows.Forms.ListBox()
+        Me.btnConfig = New System.Windows.Forms.Button()
+        Me.btnTestLights = New System.Windows.Forms.Button()
         Me.grpTest.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -148,11 +149,22 @@ Partial Class frmMain
         Me.btnConfig.Text = "Configure"
         Me.btnConfig.UseVisualStyleBackColor = True
         '
+        'btnTestLights
+        '
+        Me.btnTestLights.Location = New System.Drawing.Point(448, 269)
+        Me.btnTestLights.Name = "btnTestLights"
+        Me.btnTestLights.Size = New System.Drawing.Size(75, 23)
+        Me.btnTestLights.TabIndex = 12
+        Me.btnTestLights.Text = "LED Test"
+        Me.btnTestLights.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnTestLights.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(539, 393)
+        Me.Controls.Add(Me.btnTestLights)
         Me.Controls.Add(Me.btnConfig)
         Me.Controls.Add(Me.grpTest)
         Me.Controls.Add(Me.Label2)
@@ -182,5 +194,5 @@ Partial Class frmMain
     Friend WithEvents lstFailedKeys As System.Windows.Forms.ListBox
     Friend WithEvents prgTest As System.Windows.Forms.ProgressBar
     Friend WithEvents btnConfig As System.Windows.Forms.Button
-
+    Friend WithEvents btnTestLights As Button
 End Class

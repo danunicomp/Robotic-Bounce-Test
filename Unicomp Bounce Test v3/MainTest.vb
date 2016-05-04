@@ -24,7 +24,7 @@ Public Class frmMain
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Me.Text = "v4"
         'grpTest.Text = "No Test File Loaded"
-        Me.Text = "Unicomp FKT v3.30   01-APRIL-2016"
+        Me.Text = "Unicomp FKT v3.30   04-MAY-2016"
 
         Call PopulateTestFiles()
         AddHandler t.Elapsed, AddressOf TimerFired
@@ -195,6 +195,10 @@ Public Class frmMain
     Private Sub btnConfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConfig.Click
         Dim frmConfig As New ConfigForm
         frmConfig.ShowDialog()
+    End Sub
+
+    Private Sub btnTestLights_Click(sender As Object, e As EventArgs) Handles btnTestLights.Click
+
     End Sub
 End Class
 
