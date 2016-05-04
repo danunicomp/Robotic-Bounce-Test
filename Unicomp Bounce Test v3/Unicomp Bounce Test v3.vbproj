@@ -169,6 +169,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="TEST.FKT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Unicomp Bounce Test v3_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
