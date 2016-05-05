@@ -1,6 +1,21 @@
 'Imports System.IO
+Imports System.Runtime.InteropServices
+
+
 
 Public Class frmMain
+
+    <DllImport("user32.dll", CallingConvention:=CallingConvention.StdCall,
+      CharSet:=CharSet.Unicode, EntryPoint:="keybd_event",
+      ExactSpelling:=True, SetLastError:=True)>
+    Private Shared Function keybd_event(ByVal bVk As Int32, ByVal bScan As Int32,
+               ByVal dwFlags As Int32, ByVal dwExtraInfo As Int32) As Boolean
+    End Function
+
+    <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Unicode)>
+    Private Shared Function GetKeyState(ByVal nVirtKey As Integer) As Short
+    End Function
+
 
     Const DEBUGMODE As Boolean = False
 
@@ -24,7 +39,7 @@ Public Class frmMain
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Me.Text = "v4"
         'grpTest.Text = "No Test File Loaded"
-        Me.Text = "Unicomp FKT v3.30   04-MAY-2016"
+        Me.Text = "Unicomp FKT v3.40   05-MAY-2016"
 
         Call PopulateTestFiles()
         AddHandler t.Elapsed, AddressOf TimerFired
@@ -57,6 +72,8 @@ Public Class frmMain
     End Sub
 
     Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
+        Call KeyboardHook.UnhookKeyboard()
+        ShowLEDs(True)
         Call KeyboardHook.HookKeyboard()
         lstFailedKeys.Items.Clear()
         Call DoTest2()
@@ -121,8 +138,8 @@ Public Class frmMain
 
                     'FailedKeys.Add(Failure)
                     'Console.WriteLine("FAILED. POS: " & Failure.Position)
-                    lstFailedKeys.Items.Add("POS:" & Failure.Position & _
-                    vbTab & "SOL:" & Hex(Failure.Solenoid).PadLeft(2, CChar("0")) & vbTab & _
+                    lstFailedKeys.Items.Add("POS:" & Failure.Position &
+                    vbTab & "SOL:" & Hex(Failure.Solenoid).PadLeft(2, CChar("0")) & vbTab &
                     "Read: " & Hex(LastKey.ScanCode).PadLeft(2, CChar("0")) & " Expected: " & Hex(curPos.SetOneScanCode).PadLeft(2, CChar("0")))
                     bKeyBoardFail = True
                     iFailureCount = iFailureCount + 1
@@ -140,17 +157,40 @@ Public Class frmMain
 
             Next
             If bKeyBoardFail And Not DEBUGMODE Then Exit For
-    
+
         Next
+        Call KeyboardHook.UnhookKeyboard()
         If bStop Then Call ResultAbort()
         If bKeyBoardFail Then
             Call ResultFail()
         Else
+            Call KeyboardHook.UnhookKeyboard()
+            ShowLEDs(True)
             Call ResultPass()
         End If
 
 
     End Sub
+
+    Private Sub ShowLEDs(ByVal newState As Boolean)
+        ' if the current state must be changed
+        If CBool(GetKeyState(Keys.CapsLock)) <> newState Then
+            ' programmatically press and release the CapsLock key
+            keybd_event(Keys.CapsLock, 0, 0, 0)
+            keybd_event(Keys.CapsLock, 0, &H2, 0)
+        End If
+
+        If CBool(GetKeyState(Keys.NumLock)) <> newState Then
+            keybd_event(Keys.NumLock, 0, 0, 0)
+            keybd_event(Keys.NumLock, 0, &H2, 0)
+        End If
+
+        If CBool(GetKeyState(Keys.Scroll)) <> newState Then
+            keybd_event(Keys.Scroll, 0, 0, 0)
+            keybd_event(Keys.Scroll, 0, &H2, 0)
+        End If
+    End Sub
+
 
     Private Sub ResultFail()
         lblResult.ForeColor = Color.Red

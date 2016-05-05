@@ -31,6 +31,7 @@ Partial Class Diagnose
         Me.btnLoadConfig = New System.Windows.Forms.Button()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.cmbSelectSolenoid = New System.Windows.Forms.ComboBox()
+        Me.btnUnhook = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -114,7 +115,7 @@ Partial Class Diagnose
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(136, 230)
+        Me.Button2.Location = New System.Drawing.Point(266, 230)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 7
@@ -148,11 +149,21 @@ Partial Class Diagnose
         Me.cmbSelectSolenoid.Size = New System.Drawing.Size(66, 21)
         Me.cmbSelectSolenoid.TabIndex = 10
         '
+        'btnUnhook
+        '
+        Me.btnUnhook.Location = New System.Drawing.Point(118, 230)
+        Me.btnUnhook.Name = "btnUnhook"
+        Me.btnUnhook.Size = New System.Drawing.Size(75, 42)
+        Me.btnUnhook.TabIndex = 11
+        Me.btnUnhook.Text = "UnHook Keyboard"
+        Me.btnUnhook.UseVisualStyleBackColor = True
+        '
         'Diagnose
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(353, 323)
+        Me.Controls.Add(Me.btnUnhook)
         Me.Controls.Add(Me.cmbSelectSolenoid)
         Me.Controls.Add(Me.btnStart)
         Me.Controls.Add(Me.btnLoadConfig)
@@ -181,4 +192,5 @@ Partial Class Diagnose
     Friend WithEvents btnLoadConfig As System.Windows.Forms.Button
     Friend WithEvents btnStart As System.Windows.Forms.Button
     Friend WithEvents cmbSelectSolenoid As ComboBox
+    Friend WithEvents btnUnhook As Button
 End Class

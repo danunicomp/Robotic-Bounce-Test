@@ -98,7 +98,7 @@ Public Class classKeyboardHook
           Marshal.GetHINSTANCE( _
           [Assembly].GetExecutingAssembly.GetModules()(0)).ToInt32, 0)
 
-        Call CheckHooked()
+        '     Call CheckHooked()
     End Sub
 
     Private Sub CheckHooked()
@@ -116,9 +116,9 @@ Public Class classKeyboardHook
     End Function
 
     Public Sub UnhookKeyboard()
-        If (Hooked()) Then
-            Call UnhookWindowsHookEx(KeyboardHandle)
-        End If
+        '    If (Hooked()) Then
+        Call UnhookWindowsHookEx(KeyboardHandle)
+        '   End If
     End Sub
 
 End Class

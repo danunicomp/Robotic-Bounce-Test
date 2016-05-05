@@ -296,6 +296,12 @@ Public Class Diagnose
     Private Sub chkCycle_CheckedChanged(sender As Object, e As EventArgs) Handles chkCycle.CheckedChanged
 
     End Sub
+
+    Private Sub btnUnhook_Click(sender As Object, e As EventArgs) Handles btnUnhook.Click
+        Call KeyboardHook.UnhookKeyboard()
+
+
+    End Sub
 End Class
 
 Friend Module Functions
