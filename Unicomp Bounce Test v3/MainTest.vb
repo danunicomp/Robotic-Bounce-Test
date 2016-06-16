@@ -39,7 +39,7 @@ Public Class frmMain
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Me.Text = "v4"
         'grpTest.Text = "No Test File Loaded"
-        Me.Text = "Unicomp FKT v3.40   05-MAY-2016"
+        Me.Text = "Unicomp FKT v3.50   16-JUNE-2016"
 
         Call PopulateTestFiles()
         AddHandler t.Elapsed, AddressOf TimerFired
@@ -159,7 +159,7 @@ Public Class frmMain
             If bKeyBoardFail And Not DEBUGMODE Then Exit For
 
         Next
-        Call KeyboardHook.UnhookKeyboard()
+        'Call KeyboardHook.UnhookKeyboard()
         If bStop Then Call ResultAbort()
         If bKeyBoardFail Then
             Call ResultFail()
